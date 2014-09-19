@@ -1,0 +1,12 @@
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\bin\Debug\KodiNFOCreator.exe.config
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\obj\Debug\KodiNFOCreator.csprojResolveAssemblyReference.cache
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\obj\Debug\LegeDoos.KodiNFOCreator.Properties.Resources.resources
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\obj\Debug\KodiNFOCreator.csproj.GenerateResource.Cache
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\bin\Debug\KodiNFOCreator.exe
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\bin\Debug\KodiNFOCreator.pdb
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\obj\Debug\KodiNFOCreator.exe
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\obj\Debug\KodiNFOCreator.pdb
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\KodiNFOCreator\KodiNFOCreator\obj\Debug\LegeDoos.KodiNFOCreator.MainForm.resources
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\Kodi-NFO-Creator\KodiNFOCreator\bin\Debug\KodiNFOCreator.exe.config
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\Kodi-NFO-Creator\KodiNFOCreator\obj\Debug\KodiNFOCreator.exe
+C:\Users\rcilissen\CloudStation\Prive\Development\KodiNFOCreator\Kodi-NFO-Creator\KodiNFOCreator\obj\Debug\KodiNFOCreator.pdb

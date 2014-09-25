@@ -30,13 +30,15 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelFileName = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelSourceFile = new System.Windows.Forms.Label();
             this.btnOpenFile = new System.Windows.Forms.Button();
+            this.labelSourceFile = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.panelProperties = new System.Windows.Forms.Panel();
+            this.autoCompleteTextBox = new LegeDoos.KodiNFOCreator.AutoCompleteTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelFileName.SuspendLayout();
+            this.panelProperties.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -69,14 +71,15 @@
             this.panelFileName.Size = new System.Drawing.Size(437, 46);
             this.panelFileName.TabIndex = 0;
             // 
-            // label1
+            // btnOpenFile
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Media file: ";
+            this.btnOpenFile.Location = new System.Drawing.Point(336, 10);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenFile.TabIndex = 2;
+            this.btnOpenFile.Text = "Open";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // labelSourceFile
             // 
@@ -87,15 +90,14 @@
             this.labelSourceFile.TabIndex = 1;
             this.labelSourceFile.Text = "placeholder";
             // 
-            // btnOpenFile
+            // label1
             // 
-            this.btnOpenFile.Location = new System.Drawing.Point(336, 10);
-            this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenFile.TabIndex = 2;
-            this.btnOpenFile.Text = "Open";
-            this.btnOpenFile.UseVisualStyleBackColor = true;
-            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Media file: ";
             // 
             // panelButtons
             // 
@@ -110,11 +112,23 @@
             // panelProperties
             // 
             this.panelProperties.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelProperties.Controls.Add(this.autoCompleteTextBox);
             this.panelProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelProperties.Location = new System.Drawing.Point(3, 55);
             this.panelProperties.Name = "panelProperties";
             this.panelProperties.Size = new System.Drawing.Size(437, 410);
             this.panelProperties.TabIndex = 2;
+            // 
+            // autoCompleteTextBox
+            // 
+            this.autoCompleteTextBox.Location = new System.Drawing.Point(13, 316);
+            this.autoCompleteTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.autoCompleteTextBox.Name = "autoCompleteTextBox";
+            this.autoCompleteTextBox.Size = new System.Drawing.Size(278, 20);
+            this.autoCompleteTextBox.TabIndex = 3;
+            this.autoCompleteTextBox.Values = null;
+            this.autoCompleteTextBox.StoppedTypingTextChanged += new System.EventHandler(this.autoCompleteTextBox_StoppedTypingTextChanged);
+            this.autoCompleteTextBox.TextChanged += new System.EventHandler(this.autoCompleteTextBox_TextChanged_1);
             // 
             // MainForm
             // 
@@ -127,6 +141,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelFileName.ResumeLayout(false);
             this.panelFileName.PerformLayout();
+            this.panelProperties.ResumeLayout(false);
+            this.panelProperties.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -140,5 +156,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelButtons;
         private System.Windows.Forms.Panel panelProperties;
+        private AutoCompleteTextBox autoCompleteTextBox;
     }
 }

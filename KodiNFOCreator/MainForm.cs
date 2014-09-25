@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LegeDoos.KodiNFOCreator.IMDb_Scraper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,7 @@ namespace LegeDoos.KodiNFOCreator
         {
             InitializeComponent();
         }
+
 
         private void SourceDocsLabel_Click(object sender, EventArgs e)
         {
@@ -43,9 +45,30 @@ namespace LegeDoos.KodiNFOCreator
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 handler = new Handler(dlg.FileName);
+                handler.InitSearchTextBox(this.autoCompleteTextBox);
                 labelSourceFile.Text = handler.sourceFile;
+                
+                //tmp
                 
             }
         }
+
+        
+        private void autoCompleteTextBox_StoppedTypingTextChanged(object sender, EventArgs e)
+        {
+            //do search with force
+            handler.ExecuteSearch(true);
+        }
+
+        private void autoCompleteTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            //do search on space
+            if (autoCompleteTextBox.Text.EndsWith(" "))
+            {
+                handler.ExecuteSearch(false);
+            }
+        }
+
+
     }
 }

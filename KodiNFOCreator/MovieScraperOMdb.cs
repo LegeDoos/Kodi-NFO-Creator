@@ -64,7 +64,7 @@ namespace LegeDoos.KodiNFOCreator
                 string id = element.Attribute("imdbID").Value;
                 if (id != string.Empty)
                 {
-                    IMDbItem i = new IMDbItem(id);
+                    MovieInfo i = new MovieInfo(id);
                     i.Title = GetValue(element, "Title");
                     i.Year = GetValue(element, "Year");
                     i.Type = GetValue(element, "Type");

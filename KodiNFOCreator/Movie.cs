@@ -34,10 +34,18 @@ namespace LegeDoos.KodiNFOCreator
                 return title;
             }
         }  
-        public int year { get; set; }
+        public int? year { get; set; }
+        public bool ShouldSerializeyear()
+        {
+            return year.HasValue;
+        }
         public string outline { get; set; }
         public string plot { get; set; }
-        public int runtime { get; set; }
+        public int? runtime { get; set; }
+        public bool ShouldSerializeruntime()
+        {
+            return runtime.HasValue;
+        }
 
         public static XmlSerializer xs;
 
@@ -81,6 +89,17 @@ namespace LegeDoos.KodiNFOCreator
                 if (MessageBox.Show(string.Format("File {0} exists, overwrite?", TargetFileName), "Confirm", MessageBoxButtons.YesNo) == DialogResult.No)
                     return retVal;
             }
+
+            //fix empty values
+            if (outline != null && outline.Length == 0)
+            {
+                outline = null;
+            }
+            if (plot != null && plot.Length == 0)
+            {
+                plot = null;
+            }
+
             if (Directory.Exists(Path.GetDirectoryName(TargetFileName)))
             {
                 using (StreamWriter sw = new StreamWriter(TargetFileName))

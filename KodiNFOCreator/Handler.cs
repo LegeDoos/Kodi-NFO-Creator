@@ -89,6 +89,8 @@ namespace LegeDoos.KodiNFOCreator
         {
             Boolean exportNFO;
             Boolean exportURL;
+            Boolean success = true;
+
             string filename = "";
 
             if (sourceFile == null || sourceFile.Length == 0)
@@ -109,14 +111,26 @@ namespace LegeDoos.KodiNFOCreator
             if (exportNFO)
             {
                 //export nfo
-                NFO.SaveNFO(targetFilenameNFO);
+                success = NFO.SaveNFO(targetFilenameNFO);
             }
             if (exportURL)
             {
                 //add url
+                success = success && AddURLToFile();
             }
-
             MessageBox.Show("NFO saved!");
+        }
+
+        private bool AddURLToFile()
+        {
+            Boolean retVal = false;
+            Boolean fileExists = File.Exists(targetFilenameNFO);
+
+            //append url
+            File.AppendAllText(targetFilenameNFO, fileExists ? Environment.NewLine : "" + "http://www.google.com");
+            retVal = true;
+            return retVal;
+
         }
 
         internal void MakeFindableForCouchPotato()

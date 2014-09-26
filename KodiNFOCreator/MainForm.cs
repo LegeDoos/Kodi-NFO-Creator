@@ -19,7 +19,7 @@ namespace LegeDoos.KodiNFOCreator
         public MainForm()
         {
             InitializeComponent();
-            handler = new Handler(autoCompleteTextBox, labelSourceFile);
+            handler = new Handler(autoCompleteTextBox, labelSourceFile, kodiNFOBindingSource);
         }
 
         private void autoCompleteTextBox_StoppedTypingTextChanged(object sender, EventArgs e)
@@ -42,6 +42,24 @@ namespace LegeDoos.KodiNFOCreator
             handler.OpenFile();
         }
 
+        private void createNFOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            handler.CreateNFO();
+        }
 
+        private void buttonCreateNFO_Click(object sender, EventArgs e)
+        {
+            handler.CreateNFO();
+        }
+
+        private void buttonFindableCouchPotato_Click(object sender, EventArgs e)
+        {
+            handler.MakeFindableForCouchPotato();
+        }
+
+        private void makeFindableForCouchPotatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            handler.MakeFindableForCouchPotato();
+        }
     }
 }

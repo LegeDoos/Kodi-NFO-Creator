@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.labelCustom = new System.Windows.Forms.Label();
+            this.comboBoxScraper = new System.Windows.Forms.ComboBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.labelFindOnline = new System.Windows.Forms.Label();
+            this.labelUrl = new System.Windows.Forms.Label();
             this.panelFileName = new System.Windows.Forms.Panel();
             this.labelSourceFile = new System.Windows.Forms.Label();
             this.labelMediaFile = new System.Windows.Forms.Label();
@@ -44,16 +50,25 @@
             this.websiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBoxScraper = new System.Windows.Forms.ComboBox();
-            this.labelFindOnline = new System.Windows.Forms.Label();
-            this.labelUrl = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.labelCustom = new System.Windows.Forms.Label();
+            this.labelCustomTitle = new System.Windows.Forms.Label();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
+            this.textBoxYear = new System.Windows.Forms.TextBox();
+            this.labelCustomYear = new System.Windows.Forms.Label();
+            this.textBoxOutline = new System.Windows.Forms.TextBox();
+            this.labelCustomOutline = new System.Windows.Forms.Label();
+            this.textBoxPlot = new System.Windows.Forms.TextBox();
+            this.labelCustomPlot = new System.Windows.Forms.Label();
+            this.textBoxRuntime = new System.Windows.Forms.TextBox();
+            this.labelCustomRuntime = new System.Windows.Forms.Label();
+            this.buttonCreateNFO = new System.Windows.Forms.Button();
+            this.buttonFindableCouchPotato = new System.Windows.Forms.Button();
             this.autoCompleteTextBox = new LegeDoos.KodiNFOCreator.AutoCompleteTextBox();
+            this.kodiNFOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelFileName.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kodiNFOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -69,15 +84,26 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(443, 520);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(437, 440);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.buttonFindableCouchPotato);
+            this.panelMain.Controls.Add(this.buttonCreateNFO);
+            this.panelMain.Controls.Add(this.textBoxRuntime);
+            this.panelMain.Controls.Add(this.labelCustomRuntime);
+            this.panelMain.Controls.Add(this.textBoxPlot);
+            this.panelMain.Controls.Add(this.labelCustomPlot);
+            this.panelMain.Controls.Add(this.textBoxOutline);
+            this.panelMain.Controls.Add(this.labelCustomOutline);
+            this.panelMain.Controls.Add(this.textBoxYear);
+            this.panelMain.Controls.Add(this.labelCustomYear);
+            this.panelMain.Controls.Add(this.textBoxTitle);
+            this.panelMain.Controls.Add(this.labelCustomTitle);
             this.panelMain.Controls.Add(this.labelCustom);
             this.panelMain.Controls.Add(this.comboBoxScraper);
             this.panelMain.Controls.Add(this.linkLabel1);
@@ -85,10 +111,55 @@
             this.panelMain.Controls.Add(this.labelFindOnline);
             this.panelMain.Controls.Add(this.labelUrl);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(3, 73);
+            this.panelMain.Location = new System.Drawing.Point(3, 83);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(437, 444);
+            this.panelMain.Size = new System.Drawing.Size(431, 354);
             this.panelMain.TabIndex = 2;
+            // 
+            // labelCustom
+            // 
+            this.labelCustom.AutoSize = true;
+            this.labelCustom.Location = new System.Drawing.Point(8, 85);
+            this.labelCustom.Name = "labelCustom";
+            this.labelCustom.Size = new System.Drawing.Size(91, 13);
+            this.labelCustom.TabIndex = 8;
+            this.labelCustom.Text = "Custom properties";
+            // 
+            // comboBoxScraper
+            // 
+            this.comboBoxScraper.FormattingEnabled = true;
+            this.comboBoxScraper.Location = new System.Drawing.Point(11, 27);
+            this.comboBoxScraper.Name = "comboBoxScraper";
+            this.comboBoxScraper.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxScraper.TabIndex = 4;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(180, 49);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(120, 13);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "http://www.google.com";
+            // 
+            // labelFindOnline
+            // 
+            this.labelFindOnline.AutoSize = true;
+            this.labelFindOnline.Location = new System.Drawing.Point(8, 11);
+            this.labelFindOnline.Name = "labelFindOnline";
+            this.labelFindOnline.Size = new System.Drawing.Size(89, 13);
+            this.labelFindOnline.TabIndex = 5;
+            this.labelFindOnline.Text = "Find movie online";
+            // 
+            // labelUrl
+            // 
+            this.labelUrl.AutoSize = true;
+            this.labelUrl.Location = new System.Drawing.Point(139, 49);
+            this.labelUrl.Name = "labelUrl";
+            this.labelUrl.Size = new System.Drawing.Size(32, 13);
+            this.labelUrl.TabIndex = 6;
+            this.labelUrl.Text = "URL:";
             // 
             // panelFileName
             // 
@@ -98,7 +169,7 @@
             this.panelFileName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFileName.Location = new System.Drawing.Point(3, 38);
             this.panelFileName.Name = "panelFileName";
-            this.panelFileName.Size = new System.Drawing.Size(437, 29);
+            this.panelFileName.Size = new System.Drawing.Size(431, 39);
             this.panelFileName.TabIndex = 0;
             // 
             // labelSourceFile
@@ -127,7 +198,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(443, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(437, 35);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -169,12 +240,14 @@
             this.createNFOToolStripMenuItem.Name = "createNFOToolStripMenuItem";
             this.createNFOToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.createNFOToolStripMenuItem.Text = "Create &NFO";
+            this.createNFOToolStripMenuItem.Click += new System.EventHandler(this.createNFOToolStripMenuItem_Click);
             // 
             // makeFindableForCouchPotatoToolStripMenuItem
             // 
             this.makeFindableForCouchPotatoToolStripMenuItem.Name = "makeFindableForCouchPotatoToolStripMenuItem";
             this.makeFindableForCouchPotatoToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.makeFindableForCouchPotatoToolStripMenuItem.Text = "Make findable for &CouchPotato";
+            this.makeFindableForCouchPotatoToolStripMenuItem.Click += new System.EventHandler(this.makeFindableForCouchPotatoToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -204,50 +277,112 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             // 
-            // comboBoxScraper
+            // labelCustomTitle
             // 
-            this.comboBoxScraper.FormattingEnabled = true;
-            this.comboBoxScraper.Location = new System.Drawing.Point(11, 27);
-            this.comboBoxScraper.Name = "comboBoxScraper";
-            this.comboBoxScraper.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxScraper.TabIndex = 4;
+            this.labelCustomTitle.AutoSize = true;
+            this.labelCustomTitle.Location = new System.Drawing.Point(8, 111);
+            this.labelCustomTitle.Name = "labelCustomTitle";
+            this.labelCustomTitle.Size = new System.Drawing.Size(27, 13);
+            this.labelCustomTitle.TabIndex = 9;
+            this.labelCustomTitle.Text = "Title";
             // 
-            // labelFindOnline
+            // textBoxTitle
             // 
-            this.labelFindOnline.AutoSize = true;
-            this.labelFindOnline.Location = new System.Drawing.Point(8, 11);
-            this.labelFindOnline.Name = "labelFindOnline";
-            this.labelFindOnline.Size = new System.Drawing.Size(89, 13);
-            this.labelFindOnline.TabIndex = 5;
-            this.labelFindOnline.Text = "Find movie online";
+            this.textBoxTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "title", true));
+            this.textBoxTitle.Location = new System.Drawing.Point(77, 108);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(338, 20);
+            this.textBoxTitle.TabIndex = 10;
             // 
-            // labelUrl
+            // textBoxYear
             // 
-            this.labelUrl.AutoSize = true;
-            this.labelUrl.Location = new System.Drawing.Point(139, 49);
-            this.labelUrl.Name = "labelUrl";
-            this.labelUrl.Size = new System.Drawing.Size(32, 13);
-            this.labelUrl.TabIndex = 6;
-            this.labelUrl.Text = "URL:";
+            this.textBoxYear.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "year", true));
+            this.textBoxYear.Location = new System.Drawing.Point(77, 144);
+            this.textBoxYear.Name = "textBoxYear";
+            this.textBoxYear.Size = new System.Drawing.Size(75, 20);
+            this.textBoxYear.TabIndex = 12;
             // 
-            // linkLabel1
+            // labelCustomYear
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(180, 49);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(120, 13);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "http://www.google.com";
+            this.labelCustomYear.AutoSize = true;
+            this.labelCustomYear.Location = new System.Drawing.Point(8, 147);
+            this.labelCustomYear.Name = "labelCustomYear";
+            this.labelCustomYear.Size = new System.Drawing.Size(29, 13);
+            this.labelCustomYear.TabIndex = 11;
+            this.labelCustomYear.Text = "Year";
             // 
-            // labelCustom
+            // textBoxOutline
             // 
-            this.labelCustom.AutoSize = true;
-            this.labelCustom.Location = new System.Drawing.Point(8, 85);
-            this.labelCustom.Name = "labelCustom";
-            this.labelCustom.Size = new System.Drawing.Size(91, 13);
-            this.labelCustom.TabIndex = 8;
-            this.labelCustom.Text = "Custom properties";
+            this.textBoxOutline.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "outline", true));
+            this.textBoxOutline.Location = new System.Drawing.Point(77, 179);
+            this.textBoxOutline.Multiline = true;
+            this.textBoxOutline.Name = "textBoxOutline";
+            this.textBoxOutline.Size = new System.Drawing.Size(338, 62);
+            this.textBoxOutline.TabIndex = 14;
+            // 
+            // labelCustomOutline
+            // 
+            this.labelCustomOutline.AutoSize = true;
+            this.labelCustomOutline.Location = new System.Drawing.Point(8, 182);
+            this.labelCustomOutline.Name = "labelCustomOutline";
+            this.labelCustomOutline.Size = new System.Drawing.Size(40, 13);
+            this.labelCustomOutline.TabIndex = 13;
+            this.labelCustomOutline.Text = "Outline";
+            // 
+            // textBoxPlot
+            // 
+            this.textBoxPlot.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "plot", true));
+            this.textBoxPlot.Location = new System.Drawing.Point(77, 247);
+            this.textBoxPlot.Multiline = true;
+            this.textBoxPlot.Name = "textBoxPlot";
+            this.textBoxPlot.Size = new System.Drawing.Size(338, 66);
+            this.textBoxPlot.TabIndex = 16;
+            // 
+            // labelCustomPlot
+            // 
+            this.labelCustomPlot.AutoSize = true;
+            this.labelCustomPlot.Location = new System.Drawing.Point(8, 250);
+            this.labelCustomPlot.Name = "labelCustomPlot";
+            this.labelCustomPlot.Size = new System.Drawing.Size(25, 13);
+            this.labelCustomPlot.TabIndex = 15;
+            this.labelCustomPlot.Text = "Plot";
+            // 
+            // textBoxRuntime
+            // 
+            this.textBoxRuntime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "runtime", true));
+            this.textBoxRuntime.Location = new System.Drawing.Point(262, 144);
+            this.textBoxRuntime.Name = "textBoxRuntime";
+            this.textBoxRuntime.Size = new System.Drawing.Size(88, 20);
+            this.textBoxRuntime.TabIndex = 18;
+            // 
+            // labelCustomRuntime
+            // 
+            this.labelCustomRuntime.AutoSize = true;
+            this.labelCustomRuntime.Location = new System.Drawing.Point(165, 147);
+            this.labelCustomRuntime.Name = "labelCustomRuntime";
+            this.labelCustomRuntime.Size = new System.Drawing.Size(91, 13);
+            this.labelCustomRuntime.TabIndex = 17;
+            this.labelCustomRuntime.Text = "Runtime (minutes)";
+            // 
+            // buttonCreateNFO
+            // 
+            this.buttonCreateNFO.Location = new System.Drawing.Point(340, 321);
+            this.buttonCreateNFO.Name = "buttonCreateNFO";
+            this.buttonCreateNFO.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreateNFO.TabIndex = 19;
+            this.buttonCreateNFO.Text = "Create NFO";
+            this.buttonCreateNFO.UseVisualStyleBackColor = true;
+            this.buttonCreateNFO.Click += new System.EventHandler(this.buttonCreateNFO_Click);
+            // 
+            // buttonFindableCouchPotato
+            // 
+            this.buttonFindableCouchPotato.Location = new System.Drawing.Point(249, 321);
+            this.buttonFindableCouchPotato.Name = "buttonFindableCouchPotato";
+            this.buttonFindableCouchPotato.Size = new System.Drawing.Size(85, 23);
+            this.buttonFindableCouchPotato.TabIndex = 20;
+            this.buttonFindableCouchPotato.Text = "Make findable";
+            this.buttonFindableCouchPotato.UseVisualStyleBackColor = true;
+            this.buttonFindableCouchPotato.Click += new System.EventHandler(this.buttonFindableCouchPotato_Click);
             // 
             // autoCompleteTextBox
             // 
@@ -264,11 +399,15 @@
             this.autoCompleteTextBox.StoppedTypingTextChanged += new System.EventHandler(this.autoCompleteTextBox_StoppedTypingTextChanged);
             this.autoCompleteTextBox.TextChanged += new System.EventHandler(this.autoCompleteTextBox_TextChanged_1);
             // 
+            // kodiNFOBindingSource
+            // 
+            this.kodiNFOBindingSource.DataSource = typeof(LegeDoos.KodiNFOCreator.Movie);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 520);
+            this.ClientSize = new System.Drawing.Size(437, 440);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
             this.Text = "Kodi NFO Creator by LegeDoos";
@@ -280,6 +419,7 @@
             this.panelFileName.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kodiNFOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,5 +448,18 @@
         private System.Windows.Forms.Label labelFindOnline;
         private System.Windows.Forms.ComboBox comboBoxScraper;
         private System.Windows.Forms.Label labelCustom;
+        private System.Windows.Forms.TextBox textBoxPlot;
+        private System.Windows.Forms.Label labelCustomPlot;
+        private System.Windows.Forms.TextBox textBoxOutline;
+        private System.Windows.Forms.Label labelCustomOutline;
+        private System.Windows.Forms.TextBox textBoxYear;
+        private System.Windows.Forms.Label labelCustomYear;
+        private System.Windows.Forms.TextBox textBoxTitle;
+        private System.Windows.Forms.Label labelCustomTitle;
+        private System.Windows.Forms.BindingSource kodiNFOBindingSource;
+        private System.Windows.Forms.TextBox textBoxRuntime;
+        private System.Windows.Forms.Label labelCustomRuntime;
+        private System.Windows.Forms.Button buttonCreateNFO;
+        private System.Windows.Forms.Button buttonFindableCouchPotato;
     }
 }

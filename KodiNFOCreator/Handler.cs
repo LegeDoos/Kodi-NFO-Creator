@@ -11,10 +11,11 @@ namespace LegeDoos.KodiNFOCreator
 {
     class Handler
     {
-        KodiNFO NFO;
+        Movie NFO;
         MovieScraper MovieScraper;
         AutoCompleteTextBox theAutoCompleteTextBox;
         Label sourceFileLabel;
+        BindingSource theBindingSource;
 
         private Boolean Searching;
 
@@ -42,19 +43,36 @@ namespace LegeDoos.KodiNFOCreator
                 return Path.GetExtension(sourceFull);
             }
         }
+        private string targetFilenameNFO
+        {
+            get
+            {
+                return string.Format("{0}\\{1}.nfo", sourcePath, Path.GetFileNameWithoutExtension(sourceFull));
+            }
+        }
 
         #region.constructors
         
-        public Handler(AutoCompleteTextBox AutoCompleteTextBox, Label SourceFileLabel)
+        public Handler(AutoCompleteTextBox AutoCompleteTextBox, Label SourceFileLabel, BindingSource BindingSourceNFO)
         {
             theAutoCompleteTextBox = AutoCompleteTextBox;
             sourceFileLabel = SourceFileLabel;
             MovieScraper = new MovieScraperOMdb();
+            theBindingSource = BindingSourceNFO;
         }
 
         #endregion
 
         #region.ui
+
+
+        private void Initialize(string FileName)
+        {
+            NFO = new Movie(FileName);
+            sourceFull = FileName;
+            sourceFileLabel.Text = sourceFile;
+            theBindingSource.DataSource = NFO;
+        }
 
         public void OpenFile()
         {
@@ -67,13 +85,44 @@ namespace LegeDoos.KodiNFOCreator
             }
         }
 
-        private void Initialize(string FileName)
+        internal void CreateNFO()
         {
-            NFO = new KodiNFO(FileName);
-            sourceFull = FileName;
-            sourceFileLabel.Text = sourceFile;
+            Boolean exportNFO;
+            Boolean exportURL;
+            string filename = "";
+
+            if (sourceFile == null || sourceFile.Length == 0)
+            {
+                MessageBox.Show("No media file selected!");
+                return;
+            }
+
+            exportNFO = NFO != null && NFO.title != null && NFO.title.Length > 0;
+            exportURL = false;
+
+            if (!exportNFO && !exportURL)
+            {
+                MessageBox.Show("You have to select a online title or enter a custom title to use the create NFO function.");
+                return;
+            }
+
+            if (exportNFO)
+            {
+                //export nfo
+                NFO.SaveNFO(targetFilenameNFO);
+            }
+            if (exportURL)
+            {
+                //add url
+            }
+
+            MessageBox.Show("NFO saved!");
         }
 
+        internal void MakeFindableForCouchPotato()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
 
@@ -104,5 +153,7 @@ namespace LegeDoos.KodiNFOCreator
                 theAutoCompleteTextBox.Values = null;
             }
         }
+
+
     }
 }

@@ -8,15 +8,27 @@ using System.Xml.Serialization;
 
 namespace LegeDoos.KodiNFOCreator
 {
-    public class Movie
+    public class KodiNFO
     {
         private string FileName { get; set; }
 
         //properties
         //for def see http://wiki.xbmc.org/index.php?title=NFO_files/movies
         public string title { get; set; }
-        public string originaltitle { get; set; }
-        public string sorttitle { get; set; }
+        public string originaltitle
+        {
+            get
+            {
+                return title;
+            }
+        }  
+        public string sorttitle
+        {
+            get
+            {
+                return title;
+            }
+        }  
         public int year { get; set; }
         public string outline { get; set; }
         public string plot { get; set; }
@@ -26,18 +38,18 @@ namespace LegeDoos.KodiNFOCreator
         public static XmlSerializer xs;
 
 
-        public Movie()
+        public KodiNFO()
         {
         }
 
 
-        public Movie(string file)
+        public KodiNFO(string file)
         {
             if (!Init(file))
             {
                 throw new Exception(string.Format("File {0} not found", file));
             }
-            xs = new XmlSerializer(typeof(Movie));
+            xs = new XmlSerializer(typeof(KodiNFO));
 
             //tmp
             title = "dit is de title";

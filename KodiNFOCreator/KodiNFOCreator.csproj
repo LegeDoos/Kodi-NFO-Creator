@@ -70,7 +70,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Movie.cs" />
+    <Compile Include="KodiNFO.cs" />
     <Compile Include="MovieScraper.cs" />
     <Compile Include="MovieScraperOMdb.cs" />
     <Compile Include="Program.cs" />

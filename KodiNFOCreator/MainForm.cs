@@ -13,47 +13,15 @@ namespace LegeDoos.KodiNFOCreator
 {
     public partial class MainForm : Form
     {
-        Handler handler;
+        Handler handler {get; set;}
+
         
         public MainForm()
         {
             InitializeComponent();
+            handler = new Handler(autoCompleteTextBox, labelSourceFile);
         }
 
-
-        private void SourceDocsLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSrcDlg_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SourceDocsTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnOpenFile_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Multiselect = false;
-
-            //FolderBrowserDialog dlg = new FolderBrowserDialog();
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                handler = new Handler(dlg.FileName);
-                handler.InitSearchTextBox(this.autoCompleteTextBox);
-                labelSourceFile.Text = handler.sourceFile;
-                
-                //tmp
-                
-            }
-        }
-
-        
         private void autoCompleteTextBox_StoppedTypingTextChanged(object sender, EventArgs e)
         {
             //do search with force
@@ -67,6 +35,11 @@ namespace LegeDoos.KodiNFOCreator
             {
                 handler.ExecuteSearch(false);
             }
+        }
+
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            handler.OpenFile();
         }
 
 

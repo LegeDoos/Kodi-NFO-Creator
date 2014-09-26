@@ -5,15 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace LegeDoos.KodiNFOCreator
 {
     class Handler
     {
-        Movie movie;
+        KodiNFO movie;
         MovieScraper MovieScraper;
         AutoCompleteTextBox theAutoCompleteTextBox;
-        
+        Label sourceFileLabel;
+
         private Boolean Searching;
 
         private const int MinimumStringSize = 3;
@@ -41,25 +43,43 @@ namespace LegeDoos.KodiNFOCreator
             }
         }
 
-        public Handler(string _fileName)
+        #region.constructors
+        
+        public Handler(AutoCompleteTextBox AutoCompleteTextBox, Label SourceFileLabel)
         {
-            movie = new Movie(_fileName);
-            sourceFull = _fileName;
+            theAutoCompleteTextBox = AutoCompleteTextBox;
+            sourceFileLabel = SourceFileLabel;
             MovieScraper = new MovieScraperOMdb();
         }
 
-        internal void InitSearchTextBox(AutoCompleteTextBox textBox)
+        #endregion
+
+        #region.ui
+
+        public void OpenFile()
         {
-            theAutoCompleteTextBox = textBox;
-            //todo: delete
-            //MovieScraper.SearchForTitlePart("green");
-            //theAutoCompleteTextBox.Values = MovieScraper.SearchResultsArray;
-            
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Multiselect = false;
+
+            if (dlg.ShowDialog() == DialogResult.OK && dlg.FileName != null)
+            {
+                Initialize(dlg.FileName);
+            }
         }
+
+        private void Initialize(string FileName)
+        {
+            movie = new KodiNFO(FileName);
+            sourceFull = FileName;
+            sourceFileLabel.Text = sourceFile;
+        }
+
+        #endregion
+
 
         internal void DoSearch(string p)
         {
-            if (!Searching)
+            if (!Searching && MovieScraper != null)
             {
                 Searching = true;
                 if (p.ToLower() != theAutoCompleteTextBox.Text.ToLower())

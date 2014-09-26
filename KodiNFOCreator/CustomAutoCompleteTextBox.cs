@@ -50,6 +50,7 @@ namespace LegeDoos.KodiNFOCreator
         private void InitializeComponent()
         {
             _listBox = new ListBox();
+            
             KeyDown += this_KeyDown;
             KeyUp += this_KeyUp;
         }

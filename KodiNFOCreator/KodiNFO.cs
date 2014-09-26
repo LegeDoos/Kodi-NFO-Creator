@@ -8,11 +8,15 @@ using System.Xml.Serialization;
 
 namespace LegeDoos.KodiNFOCreator
 {
+    /// <summary>
+    /// Class representing the NFO file
+    /// </summary>
     public class KodiNFO
     {
         private string FileName { get; set; }
 
-        //properties
+        #region.members
+
         //for def see http://wiki.xbmc.org/index.php?title=NFO_files/movies
         public string title { get; set; }
         public string originaltitle
@@ -34,14 +38,15 @@ namespace LegeDoos.KodiNFOCreator
         public string plot { get; set; }
         public int runtime { get; set; }
 
-
         public static XmlSerializer xs;
 
+        #endregion
+
+        #region.constructors
 
         public KodiNFO()
         {
         }
-
 
         public KodiNFO(string file)
         {
@@ -50,17 +55,11 @@ namespace LegeDoos.KodiNFOCreator
                 throw new Exception(string.Format("File {0} not found", file));
             }
             xs = new XmlSerializer(typeof(KodiNFO));
-
-            //tmp
-            title = "dit is de title";
-            originaltitle = "dit is originaltitle";
-            sorttitle = "dit is sorttitle";
-            year = 2009;
-            runtime = 134;
-            outline = "this is the outline";
-            plot = "this is the plot";
-
         }
+
+        #endregion
+
+        #region.methods
 
         private Boolean Init(string file)
         {
@@ -82,5 +81,7 @@ namespace LegeDoos.KodiNFOCreator
                 }
             }
         }
+
+        #endregion
     }
 }

@@ -11,7 +11,7 @@ namespace LegeDoos.KodiNFOCreator
 {
     class Handler
     {
-        KodiNFO movie;
+        KodiNFO NFO;
         MovieScraper MovieScraper;
         AutoCompleteTextBox theAutoCompleteTextBox;
         Label sourceFileLabel;
@@ -69,7 +69,7 @@ namespace LegeDoos.KodiNFOCreator
 
         private void Initialize(string FileName)
         {
-            movie = new KodiNFO(FileName);
+            NFO = new KodiNFO(FileName);
             sourceFull = FileName;
             sourceFileLabel.Text = sourceFile;
         }

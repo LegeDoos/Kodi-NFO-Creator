@@ -26,7 +26,7 @@ namespace LegeDoos.KodiNFOCreator
 
         //public ScraperTypes SraperType { get; set; }
 
-        private Boolean Searching;
+        private Boolean SearchingExecuting;
 
         private const int MinimumStringSize = 3;
 
@@ -179,15 +179,15 @@ namespace LegeDoos.KodiNFOCreator
 
         internal void DoSearch(string p)
         {
-            if (!Searching && MovieScraper != null)
+            if (!SearchingExecuting && MovieScraper != null && formAutoCompleteTextBox.IsSearching)
             {
-                Searching = true;
+                SearchingExecuting = true;
                 if (p.ToLower() != formAutoCompleteTextBox.Text.ToLower())
                 {
                     MovieScraper.SearchForTitlePart(p);
                     formAutoCompleteTextBox.Values = MovieScraper.SearchResultsArray;
                 }
-                Searching = false;
+                SearchingExecuting = false;
             }   
         }
 
@@ -205,9 +205,20 @@ namespace LegeDoos.KodiNFOCreator
             }
         }
 
+        internal void StartSearch()
+        {
+            formAutoCompleteTextBox.IsSearching = true;
+        }
+
+        internal void StopSearch()
+        {
+            formAutoCompleteTextBox.IsSearching = false;
+        }
 
         #endregion
 
-        
+
+
+
     }
 }

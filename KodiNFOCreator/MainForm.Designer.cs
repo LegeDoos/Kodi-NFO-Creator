@@ -63,8 +63,8 @@
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kodiNFOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.handlerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.autoCompleteTextBox = new LegeDoos.KodiNFOCreator.AutoCompleteTextBox();
+            this.handlerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelFileName.SuspendLayout();
@@ -144,7 +144,7 @@
             this.textBoxRuntime.Location = new System.Drawing.Point(262, 144);
             this.textBoxRuntime.Name = "textBoxRuntime";
             this.textBoxRuntime.Size = new System.Drawing.Size(88, 20);
-            this.textBoxRuntime.TabIndex = 18;
+            this.textBoxRuntime.TabIndex = 5;
             // 
             // labelCustomRuntime
             // 
@@ -162,7 +162,7 @@
             this.textBoxPlot.Multiline = true;
             this.textBoxPlot.Name = "textBoxPlot";
             this.textBoxPlot.Size = new System.Drawing.Size(338, 66);
-            this.textBoxPlot.TabIndex = 16;
+            this.textBoxPlot.TabIndex = 6;
             // 
             // labelCustomPlot
             // 
@@ -180,7 +180,7 @@
             this.textBoxOutline.Multiline = true;
             this.textBoxOutline.Name = "textBoxOutline";
             this.textBoxOutline.Size = new System.Drawing.Size(338, 62);
-            this.textBoxOutline.TabIndex = 14;
+            this.textBoxOutline.TabIndex = 7;
             // 
             // labelCustomOutline
             // 
@@ -197,7 +197,7 @@
             this.textBoxYear.Location = new System.Drawing.Point(77, 144);
             this.textBoxYear.Name = "textBoxYear";
             this.textBoxYear.Size = new System.Drawing.Size(75, 20);
-            this.textBoxYear.TabIndex = 12;
+            this.textBoxYear.TabIndex = 4;
             // 
             // labelCustomYear
             // 
@@ -214,7 +214,7 @@
             this.textBoxTitle.Location = new System.Drawing.Point(77, 108);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(338, 20);
-            this.textBoxTitle.TabIndex = 10;
+            this.textBoxTitle.TabIndex = 3;
             // 
             // labelCustomTitle
             // 
@@ -240,7 +240,7 @@
             this.comboBoxScraper.Location = new System.Drawing.Point(11, 27);
             this.comboBoxScraper.Name = "comboBoxScraper";
             this.comboBoxScraper.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxScraper.TabIndex = 4;
+            this.comboBoxScraper.TabIndex = 1;
             this.comboBoxScraper.SelectedValueChanged += new System.EventHandler(this.comboBoxScraper_SelectedValueChanged);
             // 
             // linkLabel1
@@ -391,24 +391,27 @@
             // 
             this.kodiNFOBindingSource.DataSource = typeof(LegeDoos.KodiNFOCreator.Movie);
             // 
-            // handlerBindingSource
-            // 
-            this.handlerBindingSource.DataSource = typeof(LegeDoos.KodiNFOCreator.Handler);
-            // 
             // autoCompleteTextBox
             // 
             this.autoCompleteTextBox.AcceptsReturn = true;
             this.autoCompleteTextBox.AcceptsTab = true;
+            this.autoCompleteTextBox.IsSearching = false;
             this.autoCompleteTextBox.Location = new System.Drawing.Point(139, 27);
             this.autoCompleteTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.autoCompleteTextBox.MinimumSize = new System.Drawing.Size(4, 21);
             this.autoCompleteTextBox.Name = "autoCompleteTextBox";
             this.autoCompleteTextBox.Size = new System.Drawing.Size(276, 20);
-            this.autoCompleteTextBox.TabIndex = 3;
+            this.autoCompleteTextBox.TabIndex = 2;
             this.autoCompleteTextBox.Text = "Enter search title";
             this.autoCompleteTextBox.Values = null;
             this.autoCompleteTextBox.StoppedTypingTextChanged += new System.EventHandler(this.autoCompleteTextBox_StoppedTypingTextChanged);
             this.autoCompleteTextBox.TextChanged += new System.EventHandler(this.autoCompleteTextBox_TextChanged_1);
+            this.autoCompleteTextBox.Enter += new System.EventHandler(this.autoCompleteTextBox_Enter);
+            this.autoCompleteTextBox.Leave += new System.EventHandler(this.autoCompleteTextBox_Leave);
+            // 
+            // handlerBindingSource
+            // 
+            this.handlerBindingSource.DataSource = typeof(LegeDoos.KodiNFOCreator.Handler);
             // 
             // MainForm
             // 

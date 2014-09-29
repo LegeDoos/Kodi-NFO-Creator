@@ -31,6 +31,7 @@ namespace LegeDoos.KodiNFOCreator
         private void autoCompleteTextBox_TextChanged_1(object sender, EventArgs e)
         {
             //do search on space
+            handler.StartSearch();
             if (autoCompleteTextBox.Text.EndsWith(" "))
             {
                 handler.ExecuteSearch(false);
@@ -66,6 +67,16 @@ namespace LegeDoos.KodiNFOCreator
         {
             if (handler != null)
                 handler.SraperChanged();
+        }
+
+        private void autoCompleteTextBox_Enter(object sender, EventArgs e)
+        {
+            handler.StartSearch();
+        }
+
+        private void autoCompleteTextBox_Leave(object sender, EventArgs e)
+        {
+            handler.StopSearch();
         }
     }
 }

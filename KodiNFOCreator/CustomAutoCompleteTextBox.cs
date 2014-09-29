@@ -33,6 +33,10 @@ namespace LegeDoos.KodiNFOCreator
             }
         }
         private String _formerValue = String.Empty;
+        /// <summary>
+        /// Is the textbox in searchmode?
+        /// </summary>
+        public Boolean IsSearching { get; set; }
         
         //delay
         private Timer DelayedTextChangedTimer;
@@ -82,7 +86,7 @@ namespace LegeDoos.KodiNFOCreator
         {
             switch (e.KeyCode)
             {
-                case Keys.Tab:
+                //case Keys.Tab:
                 case Keys.Enter:
                     {
                         if (_listBox.Visible)
@@ -114,7 +118,7 @@ namespace LegeDoos.KodiNFOCreator
         {
             switch (keyData)
             {
-                case Keys.Tab:
+                //case Keys.Tab:
                 case Keys.Enter:
                     return true;
                 default:
@@ -198,6 +202,7 @@ namespace LegeDoos.KodiNFOCreator
             SelectionStart = firstPart.Length;
              */
             Text = newTag;
+            IsSearching = false;
         }
 
         public List<String> SelectedValues
@@ -259,7 +264,7 @@ namespace LegeDoos.KodiNFOCreator
             this.OnDelayedTextChanged(EventArgs.Empty);
         }
         #endregion
-
+        
     }
 
 }

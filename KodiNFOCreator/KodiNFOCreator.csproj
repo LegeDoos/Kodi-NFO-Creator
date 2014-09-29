@@ -74,6 +74,7 @@
     <Compile Include="MovieInfo.cs" />
     <Compile Include="MovieScraper.cs" />
     <Compile Include="MovieScraperOMdb.cs" />
+    <Compile Include="MovieScraperSearchEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">

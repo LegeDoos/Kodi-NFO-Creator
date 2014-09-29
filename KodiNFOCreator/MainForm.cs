@@ -19,7 +19,7 @@ namespace LegeDoos.KodiNFOCreator
         public MainForm()
         {
             InitializeComponent();
-            handler = new Handler(autoCompleteTextBox, labelSourceFile, kodiNFOBindingSource);
+            handler = new Handler(autoCompleteTextBox, labelSourceFile, kodiNFOBindingSource, comboBoxScraper);
         }
 
         private void autoCompleteTextBox_StoppedTypingTextChanged(object sender, EventArgs e)
@@ -60,6 +60,12 @@ namespace LegeDoos.KodiNFOCreator
         private void makeFindableForCouchPotatoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             handler.MakeFindableForCouchPotato();
+        }
+
+        private void comboBoxScraper_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (handler != null)
+                handler.SraperChanged();
         }
     }
 }

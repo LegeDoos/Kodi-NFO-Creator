@@ -183,7 +183,7 @@ namespace LegeDoos.KodiNFOCreator
 
         private void InsertWord(String newTag)
         {
-            String text = Text;
+            /*String text = Text;
             int pos = SelectionStart;
 
             int posStart = text.LastIndexOf(' ', (pos < 1) ? 0 : pos - 1);
@@ -193,9 +193,11 @@ namespace LegeDoos.KodiNFOCreator
             String firstPart = text.Substring(0, posStart) + newTag;
             String updatedText = firstPart + ((posEnd == -1) ? "" : text.Substring(posEnd, text.Length - posEnd));
 
-
+            
             Text = updatedText;
             SelectionStart = firstPart.Length;
+             */
+            Text = newTag;
         }
 
         public List<String> SelectedValues

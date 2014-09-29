@@ -13,9 +13,18 @@ namespace LegeDoos.KodiNFOCreator
     {
         Movie NFO;
         MovieScraper MovieScraper;
-        AutoCompleteTextBox theAutoCompleteTextBox;
+        AutoCompleteTextBox formAutoCompleteTextBox;
+        ComboBox formScraperSelectComboBox;
         Label sourceFileLabel;
         BindingSource theBindingSource;
+        
+        public enum ScraperTypes
+        {
+            OMDB,
+            Searchengine
+        }
+
+        //public ScraperTypes SraperType { get; set; }
 
         private Boolean Searching;
 
@@ -53,18 +62,20 @@ namespace LegeDoos.KodiNFOCreator
 
         #region.constructors
         
-        public Handler(AutoCompleteTextBox AutoCompleteTextBox, Label SourceFileLabel, BindingSource BindingSourceNFO)
+        public Handler(AutoCompleteTextBox AutoCompleteTextBox, Label SourceFileLabel, BindingSource BindingSourceNFO, ComboBox ScraperSelectCombo)
         {
-            theAutoCompleteTextBox = AutoCompleteTextBox;
+            formAutoCompleteTextBox = AutoCompleteTextBox;
             sourceFileLabel = SourceFileLabel;
-            MovieScraper = new MovieScraperOMdb();
             theBindingSource = BindingSourceNFO;
+            formScraperSelectComboBox = ScraperSelectCombo;
+            formScraperSelectComboBox.DataSource = Enum.GetValues(typeof(ScraperTypes)).Cast<ScraperTypes>();
+            formScraperSelectComboBox.SelectedItem = ScraperTypes.OMDB;
+            InitMovieScraper();
         }
 
         #endregion
 
         #region.ui
-
 
         private void Initialize(string FileName)
         {
@@ -137,18 +148,44 @@ namespace LegeDoos.KodiNFOCreator
         {
             throw new NotImplementedException();
         }
+
+        internal void SraperChanged()
+        {
+            InitMovieScraper();
+        }
+        private void InitMovieScraper()
+        {
+            ScraperTypes type = (ScraperTypes)Enum.Parse(typeof(ScraperTypes), formScraperSelectComboBox.Text);
+
+            switch (type)
+            {
+                case ScraperTypes.OMDB:
+                    MovieScraper = new MovieScraperOMdb();
+                    break;
+                case ScraperTypes.Searchengine:
+                    MovieScraper = new MovieScraperSearchEngine();
+                    break;
+                default:
+                    //default to omdb
+                    MovieScraper = new MovieScraperOMdb();
+                    break;
+            }
+
+        }
+        
         #endregion
 
+        #region.search
 
         internal void DoSearch(string p)
         {
             if (!Searching && MovieScraper != null)
             {
                 Searching = true;
-                if (p.ToLower() != theAutoCompleteTextBox.Text.ToLower())
+                if (p.ToLower() != formAutoCompleteTextBox.Text.ToLower())
                 {
                     MovieScraper.SearchForTitlePart(p);
-                    theAutoCompleteTextBox.Values = MovieScraper.SearchResultsArray;
+                    formAutoCompleteTextBox.Values = MovieScraper.SearchResultsArray;
                 }
                 Searching = false;
             }   
@@ -156,7 +193,7 @@ namespace LegeDoos.KodiNFOCreator
 
         internal void ExecuteSearch(bool force)
         {
-            string searchString = theAutoCompleteTextBox.Text.Trim();
+            string searchString = formAutoCompleteTextBox.Text.Trim();
 
             if (searchString.Length > MinimumStringSize)
             {
@@ -164,10 +201,13 @@ namespace LegeDoos.KodiNFOCreator
             }
             else
             {
-                theAutoCompleteTextBox.Values = null;
+                formAutoCompleteTextBox.Values = null;
             }
         }
 
 
+        #endregion
+
+        
     }
 }

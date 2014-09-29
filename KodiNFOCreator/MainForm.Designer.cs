@@ -31,6 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.buttonFindableCouchPotato = new System.Windows.Forms.Button();
+            this.buttonCreateNFO = new System.Windows.Forms.Button();
+            this.textBoxRuntime = new System.Windows.Forms.TextBox();
+            this.labelCustomRuntime = new System.Windows.Forms.Label();
+            this.textBoxPlot = new System.Windows.Forms.TextBox();
+            this.labelCustomPlot = new System.Windows.Forms.Label();
+            this.textBoxOutline = new System.Windows.Forms.TextBox();
+            this.labelCustomOutline = new System.Windows.Forms.Label();
+            this.textBoxYear = new System.Windows.Forms.TextBox();
+            this.labelCustomYear = new System.Windows.Forms.Label();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
+            this.labelCustomTitle = new System.Windows.Forms.Label();
             this.labelCustom = new System.Windows.Forms.Label();
             this.comboBoxScraper = new System.Windows.Forms.ComboBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -50,25 +62,15 @@
             this.websiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelCustomTitle = new System.Windows.Forms.Label();
-            this.textBoxTitle = new System.Windows.Forms.TextBox();
-            this.textBoxYear = new System.Windows.Forms.TextBox();
-            this.labelCustomYear = new System.Windows.Forms.Label();
-            this.textBoxOutline = new System.Windows.Forms.TextBox();
-            this.labelCustomOutline = new System.Windows.Forms.Label();
-            this.textBoxPlot = new System.Windows.Forms.TextBox();
-            this.labelCustomPlot = new System.Windows.Forms.Label();
-            this.textBoxRuntime = new System.Windows.Forms.TextBox();
-            this.labelCustomRuntime = new System.Windows.Forms.Label();
-            this.buttonCreateNFO = new System.Windows.Forms.Button();
-            this.buttonFindableCouchPotato = new System.Windows.Forms.Button();
-            this.autoCompleteTextBox = new LegeDoos.KodiNFOCreator.AutoCompleteTextBox();
             this.kodiNFOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.handlerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.autoCompleteTextBox = new LegeDoos.KodiNFOCreator.AutoCompleteTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelFileName.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kodiNFOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.handlerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -116,6 +118,113 @@
             this.panelMain.Size = new System.Drawing.Size(431, 354);
             this.panelMain.TabIndex = 2;
             // 
+            // buttonFindableCouchPotato
+            // 
+            this.buttonFindableCouchPotato.Location = new System.Drawing.Point(249, 321);
+            this.buttonFindableCouchPotato.Name = "buttonFindableCouchPotato";
+            this.buttonFindableCouchPotato.Size = new System.Drawing.Size(85, 23);
+            this.buttonFindableCouchPotato.TabIndex = 20;
+            this.buttonFindableCouchPotato.Text = "Make findable";
+            this.buttonFindableCouchPotato.UseVisualStyleBackColor = true;
+            this.buttonFindableCouchPotato.Click += new System.EventHandler(this.buttonFindableCouchPotato_Click);
+            // 
+            // buttonCreateNFO
+            // 
+            this.buttonCreateNFO.Location = new System.Drawing.Point(340, 321);
+            this.buttonCreateNFO.Name = "buttonCreateNFO";
+            this.buttonCreateNFO.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreateNFO.TabIndex = 19;
+            this.buttonCreateNFO.Text = "Create NFO";
+            this.buttonCreateNFO.UseVisualStyleBackColor = true;
+            this.buttonCreateNFO.Click += new System.EventHandler(this.buttonCreateNFO_Click);
+            // 
+            // textBoxRuntime
+            // 
+            this.textBoxRuntime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "runtime", true));
+            this.textBoxRuntime.Location = new System.Drawing.Point(262, 144);
+            this.textBoxRuntime.Name = "textBoxRuntime";
+            this.textBoxRuntime.Size = new System.Drawing.Size(88, 20);
+            this.textBoxRuntime.TabIndex = 18;
+            // 
+            // labelCustomRuntime
+            // 
+            this.labelCustomRuntime.AutoSize = true;
+            this.labelCustomRuntime.Location = new System.Drawing.Point(165, 147);
+            this.labelCustomRuntime.Name = "labelCustomRuntime";
+            this.labelCustomRuntime.Size = new System.Drawing.Size(91, 13);
+            this.labelCustomRuntime.TabIndex = 17;
+            this.labelCustomRuntime.Text = "Runtime (minutes)";
+            // 
+            // textBoxPlot
+            // 
+            this.textBoxPlot.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "plot", true));
+            this.textBoxPlot.Location = new System.Drawing.Point(77, 170);
+            this.textBoxPlot.Multiline = true;
+            this.textBoxPlot.Name = "textBoxPlot";
+            this.textBoxPlot.Size = new System.Drawing.Size(338, 66);
+            this.textBoxPlot.TabIndex = 16;
+            // 
+            // labelCustomPlot
+            // 
+            this.labelCustomPlot.AutoSize = true;
+            this.labelCustomPlot.Location = new System.Drawing.Point(8, 173);
+            this.labelCustomPlot.Name = "labelCustomPlot";
+            this.labelCustomPlot.Size = new System.Drawing.Size(25, 13);
+            this.labelCustomPlot.TabIndex = 15;
+            this.labelCustomPlot.Text = "Plot";
+            // 
+            // textBoxOutline
+            // 
+            this.textBoxOutline.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "outline", true));
+            this.textBoxOutline.Location = new System.Drawing.Point(77, 242);
+            this.textBoxOutline.Multiline = true;
+            this.textBoxOutline.Name = "textBoxOutline";
+            this.textBoxOutline.Size = new System.Drawing.Size(338, 62);
+            this.textBoxOutline.TabIndex = 14;
+            // 
+            // labelCustomOutline
+            // 
+            this.labelCustomOutline.AutoSize = true;
+            this.labelCustomOutline.Location = new System.Drawing.Point(8, 245);
+            this.labelCustomOutline.Name = "labelCustomOutline";
+            this.labelCustomOutline.Size = new System.Drawing.Size(40, 13);
+            this.labelCustomOutline.TabIndex = 13;
+            this.labelCustomOutline.Text = "Outline";
+            // 
+            // textBoxYear
+            // 
+            this.textBoxYear.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "year", true));
+            this.textBoxYear.Location = new System.Drawing.Point(77, 144);
+            this.textBoxYear.Name = "textBoxYear";
+            this.textBoxYear.Size = new System.Drawing.Size(75, 20);
+            this.textBoxYear.TabIndex = 12;
+            // 
+            // labelCustomYear
+            // 
+            this.labelCustomYear.AutoSize = true;
+            this.labelCustomYear.Location = new System.Drawing.Point(8, 147);
+            this.labelCustomYear.Name = "labelCustomYear";
+            this.labelCustomYear.Size = new System.Drawing.Size(29, 13);
+            this.labelCustomYear.TabIndex = 11;
+            this.labelCustomYear.Text = "Year";
+            // 
+            // textBoxTitle
+            // 
+            this.textBoxTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "title", true));
+            this.textBoxTitle.Location = new System.Drawing.Point(77, 108);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(338, 20);
+            this.textBoxTitle.TabIndex = 10;
+            // 
+            // labelCustomTitle
+            // 
+            this.labelCustomTitle.AutoSize = true;
+            this.labelCustomTitle.Location = new System.Drawing.Point(8, 111);
+            this.labelCustomTitle.Name = "labelCustomTitle";
+            this.labelCustomTitle.Size = new System.Drawing.Size(27, 13);
+            this.labelCustomTitle.TabIndex = 9;
+            this.labelCustomTitle.Text = "Title";
+            // 
             // labelCustom
             // 
             this.labelCustom.AutoSize = true;
@@ -132,6 +241,7 @@
             this.comboBoxScraper.Name = "comboBoxScraper";
             this.comboBoxScraper.Size = new System.Drawing.Size(121, 21);
             this.comboBoxScraper.TabIndex = 4;
+            this.comboBoxScraper.SelectedValueChanged += new System.EventHandler(this.comboBoxScraper_SelectedValueChanged);
             // 
             // linkLabel1
             // 
@@ -277,112 +387,13 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             // 
-            // labelCustomTitle
+            // kodiNFOBindingSource
             // 
-            this.labelCustomTitle.AutoSize = true;
-            this.labelCustomTitle.Location = new System.Drawing.Point(8, 111);
-            this.labelCustomTitle.Name = "labelCustomTitle";
-            this.labelCustomTitle.Size = new System.Drawing.Size(27, 13);
-            this.labelCustomTitle.TabIndex = 9;
-            this.labelCustomTitle.Text = "Title";
+            this.kodiNFOBindingSource.DataSource = typeof(LegeDoos.KodiNFOCreator.Movie);
             // 
-            // textBoxTitle
+            // handlerBindingSource
             // 
-            this.textBoxTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "title", true));
-            this.textBoxTitle.Location = new System.Drawing.Point(77, 108);
-            this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(338, 20);
-            this.textBoxTitle.TabIndex = 10;
-            // 
-            // textBoxYear
-            // 
-            this.textBoxYear.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "year", true));
-            this.textBoxYear.Location = new System.Drawing.Point(77, 144);
-            this.textBoxYear.Name = "textBoxYear";
-            this.textBoxYear.Size = new System.Drawing.Size(75, 20);
-            this.textBoxYear.TabIndex = 12;
-            // 
-            // labelCustomYear
-            // 
-            this.labelCustomYear.AutoSize = true;
-            this.labelCustomYear.Location = new System.Drawing.Point(8, 147);
-            this.labelCustomYear.Name = "labelCustomYear";
-            this.labelCustomYear.Size = new System.Drawing.Size(29, 13);
-            this.labelCustomYear.TabIndex = 11;
-            this.labelCustomYear.Text = "Year";
-            // 
-            // textBoxOutline
-            // 
-            this.textBoxOutline.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "outline", true));
-            this.textBoxOutline.Location = new System.Drawing.Point(77, 179);
-            this.textBoxOutline.Multiline = true;
-            this.textBoxOutline.Name = "textBoxOutline";
-            this.textBoxOutline.Size = new System.Drawing.Size(338, 62);
-            this.textBoxOutline.TabIndex = 14;
-            // 
-            // labelCustomOutline
-            // 
-            this.labelCustomOutline.AutoSize = true;
-            this.labelCustomOutline.Location = new System.Drawing.Point(8, 182);
-            this.labelCustomOutline.Name = "labelCustomOutline";
-            this.labelCustomOutline.Size = new System.Drawing.Size(40, 13);
-            this.labelCustomOutline.TabIndex = 13;
-            this.labelCustomOutline.Text = "Outline";
-            // 
-            // textBoxPlot
-            // 
-            this.textBoxPlot.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "plot", true));
-            this.textBoxPlot.Location = new System.Drawing.Point(77, 247);
-            this.textBoxPlot.Multiline = true;
-            this.textBoxPlot.Name = "textBoxPlot";
-            this.textBoxPlot.Size = new System.Drawing.Size(338, 66);
-            this.textBoxPlot.TabIndex = 16;
-            // 
-            // labelCustomPlot
-            // 
-            this.labelCustomPlot.AutoSize = true;
-            this.labelCustomPlot.Location = new System.Drawing.Point(8, 250);
-            this.labelCustomPlot.Name = "labelCustomPlot";
-            this.labelCustomPlot.Size = new System.Drawing.Size(25, 13);
-            this.labelCustomPlot.TabIndex = 15;
-            this.labelCustomPlot.Text = "Plot";
-            // 
-            // textBoxRuntime
-            // 
-            this.textBoxRuntime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kodiNFOBindingSource, "runtime", true));
-            this.textBoxRuntime.Location = new System.Drawing.Point(262, 144);
-            this.textBoxRuntime.Name = "textBoxRuntime";
-            this.textBoxRuntime.Size = new System.Drawing.Size(88, 20);
-            this.textBoxRuntime.TabIndex = 18;
-            // 
-            // labelCustomRuntime
-            // 
-            this.labelCustomRuntime.AutoSize = true;
-            this.labelCustomRuntime.Location = new System.Drawing.Point(165, 147);
-            this.labelCustomRuntime.Name = "labelCustomRuntime";
-            this.labelCustomRuntime.Size = new System.Drawing.Size(91, 13);
-            this.labelCustomRuntime.TabIndex = 17;
-            this.labelCustomRuntime.Text = "Runtime (minutes)";
-            // 
-            // buttonCreateNFO
-            // 
-            this.buttonCreateNFO.Location = new System.Drawing.Point(340, 321);
-            this.buttonCreateNFO.Name = "buttonCreateNFO";
-            this.buttonCreateNFO.Size = new System.Drawing.Size(75, 23);
-            this.buttonCreateNFO.TabIndex = 19;
-            this.buttonCreateNFO.Text = "Create NFO";
-            this.buttonCreateNFO.UseVisualStyleBackColor = true;
-            this.buttonCreateNFO.Click += new System.EventHandler(this.buttonCreateNFO_Click);
-            // 
-            // buttonFindableCouchPotato
-            // 
-            this.buttonFindableCouchPotato.Location = new System.Drawing.Point(249, 321);
-            this.buttonFindableCouchPotato.Name = "buttonFindableCouchPotato";
-            this.buttonFindableCouchPotato.Size = new System.Drawing.Size(85, 23);
-            this.buttonFindableCouchPotato.TabIndex = 20;
-            this.buttonFindableCouchPotato.Text = "Make findable";
-            this.buttonFindableCouchPotato.UseVisualStyleBackColor = true;
-            this.buttonFindableCouchPotato.Click += new System.EventHandler(this.buttonFindableCouchPotato_Click);
+            this.handlerBindingSource.DataSource = typeof(LegeDoos.KodiNFOCreator.Handler);
             // 
             // autoCompleteTextBox
             // 
@@ -398,10 +409,6 @@
             this.autoCompleteTextBox.Values = null;
             this.autoCompleteTextBox.StoppedTypingTextChanged += new System.EventHandler(this.autoCompleteTextBox_StoppedTypingTextChanged);
             this.autoCompleteTextBox.TextChanged += new System.EventHandler(this.autoCompleteTextBox_TextChanged_1);
-            // 
-            // kodiNFOBindingSource
-            // 
-            this.kodiNFOBindingSource.DataSource = typeof(LegeDoos.KodiNFOCreator.Movie);
             // 
             // MainForm
             // 
@@ -420,6 +427,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kodiNFOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.handlerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -461,5 +469,6 @@
         private System.Windows.Forms.Label labelCustomRuntime;
         private System.Windows.Forms.Button buttonCreateNFO;
         private System.Windows.Forms.Button buttonFindableCouchPotato;
+        private System.Windows.Forms.BindingSource handlerBindingSource;
     }
 }
